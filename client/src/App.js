@@ -11,6 +11,9 @@ function App() {
         <div>
           <Navbar/>
         </div>
+        <div>
+          <h1>Chamudi</h1>
+        </div>
       </div>
     </BrowserRouter>
   );
