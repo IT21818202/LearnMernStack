@@ -12,7 +12,7 @@ function App() {
           <Navbar/>
         </div>
         <div>
-          <h1>Chamudi</h1>
+          <h1>Chamudi hello</h1>
         </div>
       </div>
     </BrowserRouter>
