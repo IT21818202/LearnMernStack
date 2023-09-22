@@ -7,6 +7,8 @@ import Navbar from "./components/navbar.component";
 import ProductList from "./components/productList.component";
 import UserProfile from "./components/profile.component";
 import Cart from "./components/cart.component";
+import SignUp from "./components/signup.component";
+import SignIn from "./components/signin.component";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path='/' element={<ProductList />} />
         <Route path='/user-profile' element={<UserProfile/>} />
         <Route path='/cart' element={<Cart/>} />
+        <Route path='/signup' element={<SignUp/>} />
+        <Route path='/sign-in' element={<SignIn/>} />
       </Routes>
       </div>
     </BrowserRouter>
