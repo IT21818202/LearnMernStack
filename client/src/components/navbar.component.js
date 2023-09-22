@@ -15,8 +15,9 @@ import AdbIcon from '@mui/icons-material/Adb';
 import formatPageName from '../utils/formatPageName';
 import { Link } from 'react-router-dom';
 import userImage from '../assets/img/user.jpeg';
+import cartImage from '../assets/img/cart.png';
 
-const pages = ['Home page', 'Products', 'Pricing', 'Blog'];
+const pages = ['Home page', 'Categories ', 'Contact Us', 'Blog'];
 const settings = ['User Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {
@@ -127,6 +128,17 @@ function ResponsiveAppBar() {
                 </Button>
               </Link>
             ))}
+
+          </Box>
+            <Tooltip title="cart">
+              <Link to={'/cart'}>
+              <IconButton sx={{ p: 0 }}>
+                <img alt="Shopping cart" src={cartImage} width='30px' />
+              </IconButton>
+              </Link>
+            </Tooltip>
+          <Box> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>

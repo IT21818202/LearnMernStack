@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Navbar from "./components/navbar.component";
 import ProductList from "./components/productList.component";
 import UserProfile from "./components/profile.component";
+import Cart from "./components/cart.component";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path='/' element={<ProductList />} />
         <Route path='/user-profile' element={<UserProfile/>} />
+        <Route path='/cart' element={<Cart/>} />
       </Routes>
       </div>
     </BrowserRouter>
