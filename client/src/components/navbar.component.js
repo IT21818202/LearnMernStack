@@ -14,6 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import formatPageName from '../utils/formatPageName';
 import { Link } from 'react-router-dom';
+import userImage from '../assets/img/user.jpeg';
 
 const pages = ['Home page', 'Products', 'Pricing', 'Blog'];
 const settings = ['User Profile', 'Account', 'Dashboard', 'Logout'];
@@ -33,7 +34,7 @@ function ResponsiveAppBar() {
     setAnchorElNav();
   };
 
-  const handleCloseUserMenu = () => {
+  const handleCloseUserMenu = (event) => {
     setAnchorElUser();
   };
 
@@ -131,7 +132,7 @@ function ResponsiveAppBar() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Remy Sharp" src={userImage} />
               </IconButton>
             </Tooltip>
             <Menu

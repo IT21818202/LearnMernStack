@@ -13,6 +13,8 @@ function ProductCard() {
           bulk of the card's content.
         </Card.Text>
         <Button variant="primary">Add to cart</Button>
+        &nbsp; &nbsp;
+        <Button variant="primary">Buy Now</Button>
       </Card.Body>
     </Card>
   );
