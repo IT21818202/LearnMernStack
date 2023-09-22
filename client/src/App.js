@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Navbar from "./components/navbar.component";
 import ProductList from "./components/productList.component";
+import UserProfile from "./components/profile.component";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       
       <Routes>
         <Route path='/' element={<ProductList />} />
+        <Route path='/user-profile' element={<UserProfile/>} />
       </Routes>
       </div>
     </BrowserRouter>
