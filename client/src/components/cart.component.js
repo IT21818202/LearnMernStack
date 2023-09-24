@@ -1,102 +1,104 @@
 import React, { useState, useEffect } from "react";
 // import Layout from "./../components/Layout/Layout";
-import { useCart } from "../context/cart";
-import { useAuth } from "../context/auth";
+// import { useCart } from "../context/cart";
+// import { useAuth } from "../context/auth";
 import { useNavigate } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import { AiFillWarning } from "react-icons/ai";
 import axios from "axios";
 import toast from "react-hot-toast";
-import "../styles/CartStyles.css";
+// import "../styles/CartStyles.css";
 
 const CartPage = () => {
-  const [auth, setAuth] = useAuth();
-  const [cart, setCart] = useCart();
-  const [clientToken, setClientToken] = useState("");
-  const [instance, setInstance] = useState("");
-  const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
+  // const [auth, setAuth] = useAuth();
+  // const [cart, setCart] = useCart();
+  // const [clientToken, setClientToken] = useState("");
+  // const [instance, setInstance] = useState("");
+  // const [loading, setLoading] = useState(false);
+  // const navigate = useNavigate();
 
-  //total price
-  const totalPrice = () => {
-    try {
-      let total = 0;
-      cart?.map((item) => {
-        total = total + item.price;
-      });
-      return total.toLocaleString("en-US", {
-        style: "currency",
-        currency: "USD",
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  //detele item
-  const removeCartItem = (pid) => {
-    try {
-      let myCart = [...cart];
-      let index = myCart.findIndex((item) => item._id === pid);
-      myCart.splice(index, 1);
-      setCart(myCart);
-      localStorage.setItem("cart", JSON.stringify(myCart));
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // //total price
+  // const totalPrice = () => {
+  //   try {
+  //     let total = 0;
+  //     cart?.map((item) => {
+  //       total = total + item.price;
+  //     });
+  //     return total.toLocaleString("en-US", {
+  //       style: "currency",
+  //       currency: "USD",
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // //detele item
+  // const removeCartItem = (pid) => {
+  //   try {
+  //     let myCart = [...cart];
+  //     let index = myCart.findIndex((item) => item._id === pid);
+  //     myCart.splice(index, 1);
+  //     setCart(myCart);
+  //     localStorage.setItem("cart", JSON.stringify(myCart));
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  //get payment gateway token
-  const getToken = async () => {
-    try {
-      const { data } = await axios.get("/api/v1/product/braintree/token");
-      setClientToken(data?.clientToken);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    getToken();
-  }, [auth?.token]);
+  // //get payment gateway token
+  // const getToken = async () => {
+  //   try {
+  //     const { data } = await axios.get("/api/v1/product/braintree/token");
+  //     setClientToken(data?.clientToken);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
+  // useEffect(() => {
+  //   getToken();
+  // }, [auth?.token]);
 
-  //handle payments
-  const handlePayment = async () => {
-    try {
-      setLoading(true);
-      const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("/api/v1/product/braintree/payment", {
-        nonce,
-        cart,
-      });
-      setLoading(false);
-      localStorage.removeItem("cart");
-      setCart([]);
-      navigate("/dashboard/user/orders");
-      toast.success("Payment Completed Successfully ");
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
+  // //handle payments
+  // const handlePayment = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const { nonce } = await instance.requestPaymentMethod();
+  //     const { data } = await axios.post("/api/v1/product/braintree/payment", {
+  //       nonce,
+  //       cart,
+  //     });
+  //     setLoading(false);
+  //     localStorage.removeItem("cart");
+  //     setCart([]);
+  //     navigate("/dashboard/user/orders");
+  //     toast.success("Payment Completed Successfully ");
+  //   } catch (error) {
+  //     console.log(error);
+  //     setLoading(false);
+  //   }
+  // };
   return (
-    <Layout>
+    // <Layout>
       <div className=" cart-page">
         <div className="row">
           <div className="col-md-12">
             <h1 className="text-center bg-light p-2 mb-1">
-              {!auth?.user
+            "Hello Guest"
+              {/* {!auth?.user
                 ? "Hello Guest"
-                : `Hello  ${auth?.token && auth?.user?.name}`}
+                : `Hello  ${auth?.token && auth?.user?.name}`} */}
               <p className="text-center">
-                {cart?.length
+              You Have 2 items in your cart, please login to checkout!
+                {/* {cart?.length
                   ? `You Have ${cart.length} items in your cart ${
                       auth?.token ? "" : "please login to checkout !"
                     }`
-                  : " Your Cart Is Empty"}
+                  : " Your Cart Is Empty"} */}
               </p>
             </h1>
           </div>
         </div>
-        <div className="container ">
+        {/* <div className="container ">
           <div className="row ">
             <div className="col-md-7  p-0 m-0">
               {cart?.map((p) => (
@@ -194,9 +196,9 @@ const CartPage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
-    </Layout>
+    // </Layout>
   );
 };
 

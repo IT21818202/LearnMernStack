@@ -18,7 +18,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="#">
         Local Articrafts
       </Link>{' '}
       {new Date().getFullYear()}
@@ -38,7 +38,7 @@ export default function SignUp() {
       password: data.get('password'),
     });
 
-    window.location = '/sing-in';
+    window.location = '/sign-in';
   };
 
   return (

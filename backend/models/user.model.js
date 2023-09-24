@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema;
 
-const orderSchema = new Schema({
-    itemName: { type: String, required: true },
-    amount: { type: Int, required: true },
-    description: { type: String, required: true },
-    date: { type: Date, required: true }, 
-    itemId: { type: string, required: true }
-}, {
+const userSchema = new Schema({
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    shippingAddress: { type: String, required: true },
+    email: { type: String, required: true }, 
+    password: { type: String, required: true},
+}, {                
     timestamp: true,
 });
 
-const Oder = mongoose.model('Order', orderSchema);
+const User = mongoose.model('User', userSchema);
 
-module.exports = Order;
+module.exports = User;
