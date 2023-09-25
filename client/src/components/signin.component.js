@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+
 
 function App() {
   const [password, setPassword] = useState("");
@@ -36,12 +39,14 @@ function App() {
   const loginSubmit = (e) => {
     e.preventDefault();
     handleValidation();
+
+    window.location = '/';
   };
 
   return (
     <div className="App">
       <div className="container">
-        <div className="row d-flex justify-content-end align-items-center vh-100">
+        <div className="row d-flex justify-content-center align-items-center vh-100">
           <div className="col-md-4">
             <form id="loginform" onSubmit={loginSubmit}>
               <div className="form-group">
@@ -83,9 +88,16 @@ function App() {
               <button type="submit" className="btn btn-primary">
                 Submit
               </button>
+              <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="/signup" variant="body2">
+                 Dosen't have an account? Sign up
+                </Link>
+              </Grid>
+            </Grid>
             </form>
           </div>
-          Source: <center><a href="https://askavy.com/react-form/">React Form</a></center>
+          {/* Source: <center><a href="https://askavy.com/react-form/">React Form</a></center> */}
         </div>
       </div>
     </div>

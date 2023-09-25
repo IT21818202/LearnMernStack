@@ -17,7 +17,7 @@ import { Link } from 'react-router-dom';
 import userImage from '../assets/img/user.jpeg';
 import cartImage from '../assets/img/cart.png';
 
-const pages = ['Home page', 'Categories ', 'Contact Us', 'Blog'];
+const pages = ['Home page', 'Categories', 'Contact Us', 'Blog'];
 const settings = ['User Profile', 'Account', 'Dashboard', 'Logout'];
 
 function ResponsiveAppBar() {

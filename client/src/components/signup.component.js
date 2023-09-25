@@ -18,7 +18,7 @@ function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
       {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
+      <Link color="inherit" href="#">
         Local Articrafts
       </Link>{' '}
       {new Date().getFullYear()}
@@ -37,6 +37,8 @@ export default function SignUp() {
       email: data.get('email'),
       password: data.get('password'),
     });
+
+    window.location = '/sign-in';
   };
 
   return (
@@ -84,6 +86,16 @@ export default function SignUp() {
                 <TextField
                   required
                   fullWidth
+                  id="shippingAddress"
+                  label="Shipping Address"
+                  name="shippingAddress"
+                  autoComplete="family-name"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  fullWidth
                   id="email"
                   label="Email Address"
                   name="email"
@@ -107,6 +119,7 @@ export default function SignUp() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              
             >
               Sign Up
             </Button>
